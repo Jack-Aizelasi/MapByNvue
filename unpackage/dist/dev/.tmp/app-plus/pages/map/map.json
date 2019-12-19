@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "地图",
+  "titleNView": false,
+  "subNVues": [
+    {
+      "id": "map_widget",
+      "path": "pages/subNvues/map_widget/map_widget"
+    }
+  ],
+  "usingComponents": {}
+}

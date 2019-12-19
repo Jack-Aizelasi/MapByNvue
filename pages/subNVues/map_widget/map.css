@@ -1,0 +1,858 @@
+/**********************************header--start**********************************/
+.header {
+	position: fixed;
+	top: 40rpx;
+	left: 32rpx;
+	width: 686rpx;
+	height: 90rpx;
+	z-index: 10;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+}
+
+.header-icon {
+	width: 75rpx;
+	height: 75rpx;
+	border-radius: 50%;
+	background-color: #fff;
+	justify-content: center;
+	align-items: center;
+}
+
+.iconwode,
+.iconxiaoxi,
+.iconsaoma {
+	font-size: 40rpx;
+	color: #999999;
+}
+
+.header-search {
+	width: 400rpx;
+	height: 75rpx;
+	padding: 0 20rpx;
+	border-radius: 50rpx;
+	background-color: #fff;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+}
+
+.iconsearch {
+	font-size: 40rpx;
+	color: #999999;
+}
+
+.iconchahao {
+	font-size: 30rpx;
+	color: #999999;
+}
+
+.search-input {
+	margin: 0 15rpx;
+	height: 75rpx;
+	flex: 1;
+	/* outline: transparent; */
+	/* border: none; */
+	font-size: 24rpx;
+	color: #999999;
+}
+
+/**********************************header--end**********************************/
+/**********************************浮层详情--start**********************************/
+.dragLayer {
+	width: 750rpx;
+	/* height: auto; */
+	position: fixed;
+	background-color: #fff;
+	border-top-left-radius: 50rpx;
+	border-top-right-radius: 50rpx;
+	bottom: 0;
+}
+
+.layer-child {
+	width: 750rpx;
+	/* height: auto; */
+	/* margin: 0 auto; */
+}
+
+.drag-icon {
+	width: 750rpx;
+	height: 80rpx;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+.layer-details {
+	width: 750rpx;
+	height: 1000rpx;
+	/* overflow-y: scroll; */
+}
+
+.oilStation {
+	width: 594rpx;
+	height: 245rpx;
+	margin: 0 78rpx;
+}
+
+.oilStation-top {
+	width: 594rpx;
+	height: 135rpx;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+}
+
+.oilStation-top-icon {
+	width: 110rpx;
+	/* height: 100%; */
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+.oilStation-top-iconBg {
+	width: 90rpx;
+	height: 90rpx;
+	border-radius: 50%;
+	background-color: #ffb92e;
+}
+
+.oilStation-top-iconBg-img {
+	width: 90rpx;
+	height: 90rpx;
+}
+
+.oilStation-top-name {
+	flex: 1;
+	padding: 0 15rpx;
+}
+
+.oilStation-top-nameBox {
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.oilStation-top-nameBox-name {
+	font-size: 36rpx;
+	color: #333333;
+}
+
+.oilStation-top-nameBox-address {
+	font-size: 22rpx;
+	color: #999;
+}
+
+.oilStation-top-navigation {
+	width: 120rpx;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.oilStation-top-navigation-iconBg {
+	width: 120rpx;
+	height: 120rpx;
+	background-color: #ffc02e;
+	border-radius: 50%;
+	justify-content: center;
+	align-items: center;
+}
+
+.iconfont {
+	font-family: unibtn;
+	font-weight: 400;
+}
+
+.icondaohangzhanguanli {
+	font-size: 50rpx;
+	color: #101010;
+}
+
+.oilStation-top-navigation-iconBg-span {
+	font-size: 22rpx;
+	color: #101010;
+}
+
+.oilStation-bottom {
+	width: 594rpx;
+	height: 110rpx;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+}
+
+.oilStation-bottom-collectBox {
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.oilStation-bottom-collectBox-collect {
+	width: 110rpx;
+	height: 40rpx;
+	line-height: 40rpx;
+	text-align: center;
+	font-size: 20rpx;
+	color: #555555;
+	background-color: #eef1f4;
+	border-radius: 50rpx;
+}
+
+.oilStation-bottom-collectBox-score {
+	font-size: 18rpx;
+	color: #ffb92e;
+	margin-top: 5rpx;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+.iconstar {
+	font-size: 20rpx;
+	color: #ffb92e;
+	margin: 0 5rpx;
+}
+
+.oilStation-bottom-collectBox-score-span {
+	font-size: 20rpx;
+	color: #ffb92e;
+}
+
+.oilStation-bottom-lineUpBox {
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+.oilStation-bottom-lineUpBox-lineUp {
+	width: 250rpx;
+	height: 60rpx;
+	background-color: #eef1f4;
+	border-radius: 20rpx;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+}
+
+.oilStation-bottom-lineUpBox-headBox {
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+}
+
+.oilStation-bottom-lineUpBox-headBox-medal {
+	width: 38rpx;
+	height: 38rpx;
+	margin-left: -10rpx;
+}
+
+.oilStation-bottom-lineUpBox-headBox-medal:first-child {
+	margin-left: 0;
+}
+
+.oilStation-bottom-lineUpBox-lineUpNum {
+	font-size: 20rpx;
+	color: #555555;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+}
+
+.oilStation-bottom-lineUpBox-lineUpNum-num {
+	font-size: 22rpx;
+	color: #ff6f21;
+}
+
+.oilStation-bottom-lineUpBox-lineUpNum-txt {
+	font-size: 20rpx;
+	color: #999;
+}
+
+.oilStation-bottom-distanceBox {
+	justify-content: center;
+	align-items: center;
+}
+
+.oilStation-bottom-distanceBox-distance {
+	width: 155rpx;
+	height: 58rpx;
+	padding: 0 10rpx;
+	border-width: 1rpx;
+	border-style: solid;
+	border-color: #dddddd;
+	border-radius: 20rpx;
+	font-size: 20rpx;
+	color: #555555;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+}
+
+.oilStation-bottom-distanceBox-num {
+	font-size: 22rpx;
+	color: #3294ff;
+}
+
+.oilStation-bottom-distanceBox-txt {
+	font-size: 20rpx;
+	color: #999;
+}
+
+.icondingwei {
+	font-size: 36rpx;
+	color: #999;
+}
+
+.todayOilPrice {
+	width: 594rpx;
+	height: 240rpx;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #eef1f4;
+	margin: 0 78rpx;
+}
+
+.oil-title {
+	width: 594rpx;
+	height: 85rpx;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.oil-title-txt {
+	font-size: 30rpx;
+	color: #333333;
+}
+
+.todayOil-content {
+	width: 594rpx;
+	height: 155rpx;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-direction: row;
+	padding-left: 40rpx;
+}
+
+.todayOil-priceByOilNum {
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: relative;
+}
+
+.todayOil-priceByOilNum-sheng {
+	font-size: 22rpx;
+	color: #ffc02e;
+	font-weight: bold;
+}
+
+.todayOil-priceByOilNum-sheng:first-letter {
+	font-size: 35rpx;
+	/* vertical-align: auto; */
+}
+
+.shengActive {
+	background-image: linear-gradient(to right, #ff644f, #ff7f3f);
+	/* -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent; */
+}
+
+.todayOil-priceByOilNum-oilNum {
+	font-size: 25rpx;
+	color: #777777;
+	margin: 5rpx;
+}
+
+.myCarLabel {
+	width: 117rpx;
+	height: 33rpx;
+	border-radius: 50rpx;
+	background-color: #ffc02e;
+	position: absolute;
+	left: -20rpx;
+	bottom: -40rpx;
+	font-size: 20rpx;
+	color: #101010;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+}
+
+.myCarLabel-txt {
+	font-size: 20rpx;
+	color: #101010;
+}
+
+.myCarLabel-img {
+	width: 12rpx;
+	height: 10rpx;
+	position: absolute;
+	top: -5rpx;
+	left: 58rpx;
+	margin-left: -6rpx;
+	z-index: -1;
+}
+
+.oilActivity {
+	width: 672rpx;
+	height: 360rpx;
+	margin-left: 78rpx;
+	margin-top: 20rpx;
+	position: relative;
+}
+
+/* .oilActivity::after {
+	content: '';
+	position: absolute;
+	background-color: #eef1f4;
+	bottom: 0;
+	left: 0;
+	width: 672rpx;
+	height: 1rpx;
+} */
+
+.oilActivity-title {
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+}
+
+
+.oilActivity-title-biaoqian {
+	height: 30rpx;
+	background-color: #ffefed;
+	border-radius: 10rpx;
+	font-size: 20rpx;
+	color: #ff644f;
+	margin: 0 10rpx;
+	padding: 0 10rpx;
+	justify-content: center;
+	align-items: center;
+}
+
+.activity-content {
+	width: 672rpx;
+}
+
+.activity-couponBox {
+	width: 672rpx;
+	/* overflow-x: scroll;
+	white-space: nowrap; */
+	flex-direction: row;
+}
+
+.activity-couponBox-couponChild {
+	width: 356rpx;
+	height: 222rpx;
+	border-radius: 25rpx;
+	margin-right: 26rpx;
+	position: relative;
+}
+
+.activity-coupon-bg-img {
+	width: 356rpx;
+	height: 222rpx;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -10;
+}
+
+.activity-coupon-top {
+	width: 356rpx;
+	height: 60rpx;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.activity-coupon-top-qian {
+	height: 35rpx;
+	line-height: 35rpx;
+	padding: 0 5rpx;
+	font-size: 20rpx;
+	color: #5d4d3a;
+	background-color: #dedfe0;
+	border-top-right-radius: 7.5rpx;
+}
+
+.activity-coupon-main {
+	width: 356rpx;
+	height: 162rpx;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+}
+
+.activity-coupon-main-name {
+	font-size: 32rpx;
+	color: #5d4d3a;
+	margin: 10rpx 0;
+}
+
+.activity-coupon-main-receive {
+	width: 280rpx;
+	height: 40rpx;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #837c73;
+	border-radius: 12rpx;
+	justify-content: flex-end;
+	align-items: center;
+	flex-direction: row;
+}
+
+
+
+.activity-coupon-main-receive-rules {
+	width: 218rpx;
+	height: 40rpx;
+	font-size: 28rpx;
+	color: #dac2a6;
+	text-align: center;
+	background-image: linear-gradient(to right, #2e271d, #4e4132);
+	border-top-left-radius: 12rpx;
+	border-bottom-left-radius: 12rpx;
+	justify-content: center;
+	align-items: center;
+}
+
+.activity-coupon-main-receive-ling {
+	width: 60rpx;
+	height: 40rpx;
+	font-size: 28rpx;
+	color: #837c73;
+	justify-content: center;
+	align-items: center;
+}
+
+.appDiscount {
+	width: 672rpx;
+	height: 396rpx;
+	margin-left: 78rpx;
+	margin-top: 20rpx;
+}
+
+.appDiscount-title {
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+}
+
+.appDiscount-title-biaoqian {
+	height: 30rpx;
+	background-color: #d7eaff;
+	border-radius: 10rpx;
+	font-size: 20rpx;
+	color: #3294ff;
+	margin: 0 10rpx;
+	padding: 0 10rpx;
+	justify-content: center;
+	align-items: center;
+}
+
+.discount-content {
+	position: relative;
+}
+
+.discountBox {
+	padding: 30rpx;
+	width: 540rpx;
+	height: 310rpx;
+	border-radius: 50rpx;
+	position: relative;
+}
+
+.discountBox-img {
+	width: 540rpx;
+	height: 310rpx;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -10;
+}
+
+.discount-dateBox {
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+}
+
+.discount-dateBox-date {
+	font-size: 20rpx;
+	color: #fff;
+}
+
+.discount-dateBox-cishu {
+	font-size: 20rpx;
+	color: #174f8d;
+}
+
+.discount-nameBox {
+	width: 480rpx;
+	height: 80rpx;
+	margin: 10rpx 0;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.discount-nameBox-txt {
+	font-size: 36rpx;
+	color: #fff;
+	font-weight: bold;
+}
+
+.discount-money {
+	width: 480rpx;
+	margin: 25rpx 0;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+}
+
+.discount-money-left {
+	width: 240rpx;
+	height: 70rpx;
+	background-color: #fff;
+	border-radius: 50rpx;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+}
+
+.discount-money-left-amount {
+	font-size: 40rpx;
+	color: #ffc61c;
+	font-weight: bold;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+.discount-money-left-amount-yang {
+	font-size: 24rpx;
+	color: #ffc61c;
+}
+
+.discount-money-left-amount-price {
+	font-size: 36rpx;
+	color: #ffc61c;
+}
+
+.iconcha {
+	font-size: 24rpx;
+	color: #3294ff;
+}
+
+.discount-money-left-num {
+	font-size: 24rpx;
+	color: #3294ff;
+	font-weight: bold;
+}
+
+.discount-money-right {
+	font-weight: bold;
+	justify-content: center;
+	align-items: flex-end;
+	flex-direction: row;
+}
+
+.discount-money-right-yang {
+	font-size: 30rpx;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.discount-money-right-price {
+	font-size: 90rpx;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.swiper-container {
+	position: relative;
+	overflow: hidden;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18rpx;
+	background-color: #fff;
+	/* width: 6rem; */
+	/* display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center; */
+	justify-content: center;
+	/* -webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center; */
+	align-items: center;
+}
+
+.more {
+	width: 750rpx;
+	height: 90rpx;
+	justify-content: center;
+	align-items: center;
+}
+
+.more-txt {
+	font-size: 22rpx;
+	color: #ccc;
+}
+
+/**********************************浮层详情--end**********************************/
+/**********************************浮层list--start**********************************/
+.layer-list {
+	width: 750rpx;
+}
+
+.layer-list-item {
+	width: 594rpx;
+	height: 160rpx;
+	margin: 0 78rpx;
+	position: relative;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+}
+
+/* .layer-list .layer-list-item::active {
+	content: '';
+	position: absolute;
+	background: #efefef;
+	bottom: 0;
+	left: 102rpx;
+	width: 750rpx;
+	height: 1rpx;
+} */
+
+/* .layer-list .layer-list-item:last-child::after {
+	content: '';
+	position: absolute;
+	background: #fff;
+	bottom: 0;
+	left: 1.02rem;
+	width: 100%;
+	height: 0.5px;
+} */
+
+.layerItem-logo {
+	width: 75rpx;
+	height: 160rpx;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+}
+
+.layerItem-logoBox {
+	width: 75rpx;
+	height: 75rpx;
+	border-radius: 50%;
+}
+
+.layerItem-logoBox-img {
+	width: 75rpx;
+	height: 75rpx;
+}
+
+.layerItem-logo-biaoqian {
+	position: absolute;
+	top: 20rpx;
+	right: -100rpx;
+	height: 29rpx;
+	padding: 0 25rpx;
+	border-top-left-radius: 20rpx;
+	border-bottom-right-radius: 20rpx;
+	background-image: linear-gradient(to right, #ff644f, #ff813d);
+	justify-content: center;
+	align-items: center;
+}
+
+.layerItem-logo-biaoqian-txt {
+	font-size: 20rpx;
+	color: #ffffff;
+}
+
+.layerItem-address {
+	padding-left: 30rpx;
+	flex: 1;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+}
+
+.layerItem-address-nameBox {
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+}
+
+.layerItem-address-nameBox-name {
+	font-size: 32rpx;
+	color: #333333;
+}
+
+.layerItem-address-nameBox-distance {
+	margin: 0 10rpx;
+	font-size: 22rpx;
+	color: #3294ff;
+}
+
+.layerItem-address-position {
+	font-size: 22rpx;
+	color: #999999;
+}
+
+.layerItem-address-position-txt {
+	font-size: 22rpx;
+	color: #999999;
+}
+
+.layerItem-situation {
+	width: 100rpx;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.layerItem-situation-status {
+	width: 61rpx;
+	height: 34rpx;
+	line-height: 34rpx;
+	text-align: center;
+	font-size: 20rpx;
+	color: #ff6f21;
+	border-width: 1rpx;
+	border-style: solid;
+	border-color: #ff6f21;
+	border-radius: 50rpx;
+}
+
+.layerItem-situation-pingfen {
+	font-size: 20rpx;
+	color: #555555;
+	margin-top: 5rpx;
+}
+
+.layerItem-jinru {
+	width: 30rpx;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.iconjinru {
+	font-size: 26rpx;
+	color: #999;
+}
+
+/**********************************浮层list--end**********************************/

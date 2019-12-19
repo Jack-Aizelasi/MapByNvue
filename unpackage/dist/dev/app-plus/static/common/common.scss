@@ -1,0 +1,85 @@
+.wrapper {
+	/* #ifndef APP-PLUS-NVUE */
+	display: flex;
+	/* #endif */
+	flex: 1;
+	flex-direction: column;
+	background-color: #efeff4;
+	padding: 20upx;
+}
+
+.input-group {
+	background-color: #ffffff;
+	margin-top: 40upx;
+	position: relative;
+}
+
+.input-group::before {
+	position: absolute;
+	right: 0;
+	top: 0;
+	left: 0;
+	height: 1upx;
+	/* #ifndef APP-PLUS-NVUE */
+	content: '';
+	-webkit-transform: scaleY(.5);
+	transform: scaleY(.5);
+	/* #endif */
+	background-color: #c8c7cc;
+}
+
+.input-group::after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 1upx;
+	/* #ifndef APP-PLUS-NVUE */
+	content: '';
+	-webkit-transform: scaleY(.5);
+	transform: scaleY(.5);
+	/* #endif */
+	background-color: #c8c7cc;
+}
+
+.input-row {
+	/* #ifndef APP-PLUS-NVUE */
+	display: flex;
+	/* #endif */
+	flex-direction: row;
+	position: relative;
+}
+
+.input-row-title {
+	width: 20%;
+	height: 50upx;
+	/* #ifndef APP-PLUS-NVUE */
+	min-height: 50upx;
+	/* #endif */
+	padding: 15upx 0;
+	padding-left: 30upx;
+	line-height: 50upx;
+}
+
+.input-row-border::after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 15upx;
+	height: 1upx;
+	/* #ifndef APP-PLUS-NVUE */
+	content: '';
+	-webkit-transform: scaleY(.5);
+	transform: scaleY(.5);
+	/* #endif */
+	background-color: #c8c7cc;
+}
+
+.btn-row {
+	margin-top: 50upx;
+	padding: 20upx;
+}
+
+.primary {
+	background-color: #0faeff;
+}

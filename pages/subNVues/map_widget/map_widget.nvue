@@ -1,0 +1,501 @@
+<template>
+	<div>
+		<div class="header">
+			<div class="header-icon" @click="showDrawer">
+				<text class="iconfont iconwode">&#xe626;</text>
+			</div>
+			<div class="header-search">
+				<text class="iconfont iconsearch">&#xe60e;</text>
+				<input class="search-input" type="text" name="" id="searchInput" v-model="searchKeyword" @input="onSearchInput" placeholder="搜索加油站" />
+				<text class="iconfont iconchahao">&#xe618;</text>
+			</div>
+			<div class="header-icon">
+				<text class="iconfont iconxiaoxi">&#xe67c;</text>
+			</div>
+			<div class="header-icon">
+				<text class="iconfont iconsaoma">&#xe64a;</text>
+			</div>
+		</div>
+		<!-- <map key='map1' :style="{width: '750rpx', height: mapHeight + 'rpx'}" :latitude="latitude" :longitude="longitude" :polyline="polylines" :include-points="markers" :markers="markers"></map> -->
+		<map 
+			key='map1'
+			:style="{width: '750rpx', height: mapHeight + 'rpx'}"
+			:latitude="latitude"
+			:longitude="longitude"
+			:markers="markers"
+			
+			>
+		</map>
+		
+		<div ref="dragLayer" class="dragLayer" :class="dragLayer" :style="{top: topSize + 'rpx' }" @touchstart="handleTouchStart"
+		 @touchend="handleTouchEnd" @touchmove="handleTouchMove">
+			<div ref="layerChild" class="layer-child">
+				<div ref="dragIcon" class="drag-icon"></div>
+				<scroller class="layer-details" :scrollable="scrollable" show-scrollbar="false" @scroll="scrollHandler"
+				 offset-accuracy="1">
+					<refresh @refresh="onrefresh" @pullingdown="onpullingdown" :display="refreshing ? 'show' : 'hide'">
+					</refresh>
+					<div ref="oilStation" class="oilStation">
+						<div class="oilStation-top">
+							<div class="oilStation-top-icon">
+								<div class="oilStation-top-iconBg">
+									<image class="oilStation-top-iconBg-img" src="../../static/images/layer/oil.png" mode="widthFix"></image>
+								</div>
+							</div>
+							<div class="oilStation-top-name">
+								<div class="oilStation-top-nameBox">
+									<text class="oilStation-top-nameBox-name">小智与小慧加油站</text>
+									<text class="oilStation-top-nameBox-address">康宁路与宁德路交汇处32号</text>
+								</div>
+							</div>
+							<div class="oilStation-top-navigation">
+								<div class="oilStation-top-navigation-iconBg">
+									<text class="iconfont icondaohangzhanguanli">&#xe623;</text>
+									<text class="oilStation-top-navigation-iconBg-span">去加油</text>
+								</div>
+							</div>
+						</div>
+						<div class="oilStation-bottom">
+							<div class="oilStation-bottom-collectBox">
+								<text class="oilStation-bottom-collectBox-collect">加收藏</text>
+								<div class="oilStation-bottom-collectBox-score">
+									<text class="iconfont iconstar">&#xe608;</text>
+									<text class="oilStation-bottom-collectBox-score-span">4.9分</text>
+								</div>
+							</div>
+							<div class="oilStation-bottom-lineUpBox">
+								<div class="oilStation-bottom-lineUpBox-lineUp">
+									<div class="oilStation-bottom-lineUpBox-headBox">
+										<image class="oilStation-bottom-lineUpBox-headBox-medal" src="../../static/images/layer/head1.png" mode="widthFix"></image>
+										<image class="oilStation-bottom-lineUpBox-headBox-medal" src="../../static/images/layer/head2.png" mode="widthFix"></image>
+										<image class="oilStation-bottom-lineUpBox-headBox-medal" src="../../static/images/layer/head3.png" mode="widthFix"></image>
+									</div>
+									<div class="oilStation-bottom-lineUpBox-lineUpNum">
+										<text class="oilStation-bottom-lineUpBox-lineUpNum-num">12</text>
+										<text class="oilStation-bottom-lineUpBox-lineUpNum-txt">人排队</text>
+									</div>
+								</div>
+							</div>
+							<div class="oilStation-bottom-distanceBox">
+								<div class="oilStation-bottom-distanceBox-distance">
+									<text class="oilStation-bottom-distanceBox-num">2.7</text>
+									<text class="oilStation-bottom-distanceBox-txt">km</text>
+									<text class="iconfont icondingwei">&#xe667;</text>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ref="todayOilPrice" class="todayOilPrice">
+						<div class="oil-title">
+							<text class="oil-title-txt">今日油价</text>
+						</div>
+						<div class="todayOil-content">
+							<div class="todayOil-priceByOilNum">
+								<text class="todayOil-priceByOilNum-sheng shengActive">6.75/L</text>
+								<text class="todayOil-priceByOilNum-oilNum">92#</text>
+								<div class="myCarLabel">
+									<text class="myCarLabel-txt">我的车辆</text>
+									<image class="myCarLabel-img" src="../../static/images/layer/san.png" mode="widthFix"></image>
+								</div>
+							</div>
+							<div class="todayOil-priceByOilNum">
+								<text class="todayOil-priceByOilNum-sheng">7.20/L</text>
+								<text class="todayOil-priceByOilNum-oilNum"> 95#</text>
+								<div class="myCarLabel">
+									<text class="myCarLabel-txt">我的车辆</text>
+									<image class="myCarLabel-img" src="../../static/images/layer/san.png" mode="widthFix"></image>
+								</div>
+							</div>
+							<div class="todayOil-priceByOilNum">
+								<text class="todayOil-priceByOilNum-sheng">7.84/L</text>
+								<text class="todayOil-priceByOilNum-oilNum">98#</text>
+							</div>
+							<div class="todayOil-priceByOilNum">
+								<text class="todayOil-priceByOilNum-sheng">8.72/L</text>
+								<text class="todayOil-priceByOilNum-oilNum">101#</text>
+							</div>
+						</div>
+					</div>
+					<div class="oilActivity">
+						<div class="oil-title oilActivity-title">
+							<text class="oil-title-txt">加油站活动</text>
+							<text class="oilActivity-title-biaoqian">·可与APP优惠同享</text>
+						</div>
+						<div class="activity-content">
+							<scroller class="activity-couponBox" scroll-direction="horizontal">
+								<div class="activity-couponBox-couponChild">
+									<image class="activity-coupon-bg-img" src="../../static/images/layer/quan_bd@2x.png" mode="widthFix"></image>
+									<div class="activity-coupon-top">
+										<text class="activity-coupon-top-qian">新人活动</text>
+									</div>
+									<div class="activity-coupon-main">
+										<text class="activity-coupon-main-name">满百减10元</text>
+										<div class="activity-coupon-main-receive">
+											<text class="activity-coupon-main-receive-rules">首单任意减10元</text>
+											<text class="activity-coupon-main-receive-ling">领取</text>
+										</div>
+									</div>
+								</div>
+								<div class="activity-couponBox-couponChild">
+									<image class="activity-coupon-bg-img" src="../../static/images/layer/quan_bd@2x.png" mode="widthFix"></image>
+									<div class="activity-coupon-top">
+										<text class="activity-coupon-top-qian">新人活动</text>
+									</div>
+									<div class="activity-coupon-main">
+										<text class="activity-coupon-main-name">满百减10元</text>
+										<div class="activity-coupon-main-receive">
+											<text class="activity-coupon-main-receive-rules">首单任意减10元</text>
+											<text class="activity-coupon-main-receive-ling">领取</text>
+										</div>
+									</div>
+								</div>
+							</scroller>
+						</div>
+					</div>
+					<div class="appDiscount">
+						<div class="oil-title appDiscount-title">
+							<text class="oil-title-txt">APP优惠活动</text>
+							<text class="appDiscount-title-biaoqian">·夏日优惠套餐来啦~</text>
+						</div>
+						<div class="discount-content">
+							<div class="swiper-container" id="discount">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="discountBox">
+											<image class="discountBox-img" src="../../static/images/layer/summer_act_bg@2x.png" mode="widthFix"></image>
+											<div class="discount-dateBox">
+												<text class="discount-dateBox-date">2019.8.1-2019.9.31</text>
+												<text class="discount-dateBox-cishu">*限购一次</text>
+											</div>
+											<div class="discount-nameBox">
+												<text class="discount-nameBox-txt">大连/盛夏套装抢购</text>
+											</div>
+											<div class="discount-money">
+												<div class="discount-money-left">
+													<div class="discount-money-left-amount">
+														<text class="discount-money-left-amount-yang">￥</text>
+														<text class="discount-money-left-amount-price">8</text>
+													</div>
+													<text class="iconfont iconcha">&#xe61a;</text>
+													<text class="discount-money-left-num">10张</text>
+												</div>
+												<div class="discount-money-right">
+													<text class="discount-money-right-yang">￥</text>
+													<text class="discount-money-right-price">30</text>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-pagination" style="display: none;"></div>
+							</div>
+						</div>
+					</div>
+					<div class="more">
+						<text class="more-txt">更多优惠敬请期待</text>
+					</div>
+				</scroller>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+	const Binding = uni.requireNativePlugin('bindingx');
+	const domModule = weex.requireModule('dom')
+	export default {
+		data() {
+			return {
+				map: null,
+				mapHeight: 1334,
+				// 屏幕高度
+				screenHeight: 667,
+				latitude: 0,
+				longitude: 0,
+				covers: [],
+				markers: [],
+				polylines: [],
+				includes: [],
+				includePoints: [],
+
+				dragLayer: "dragLayer",
+				topSize: 769,
+				// 向上滑动的距离
+				topHeight: 0,
+				isTop: false,
+				// 初始化禁止滑动
+				scrollable: false,
+				refreshing: false,
+				contentOffsetY: 10,
+				
+				// 搜索
+				searchKeyword: '',
+				subNVue: uni.getCurrentSubNVue(),
+			}
+		},
+		beforeCreate() {
+			domModule.addRule('fontFace', {
+				fontFamily: "unibtn",
+				'src': "url('https://at.alicdn.com/t/font_1334468_brmm47kibjk.ttf')"
+				// 'src': "url('https://at.alicdn.com/t/font_1150697_ekrhl2dncp8.ttf')"
+			});
+		},
+		onReady() {
+			let that = this;
+			
+			// 获取屏幕高度
+			uni.getSystemInfo({
+				success: (res) => {
+					domModule.getComponentRect(this.$refs.layerChild, option => {
+						this.layerChildHeight = option.size.height
+						console.log(this.layerChildHeight)
+					})
+
+					domModule.getComponentRect(this.$refs.dragIcon, option => {
+						this.dragIconHeight = option.size.height
+					})
+
+					domModule.getComponentRect(this.$refs.oilStation, option => {
+						this.oilStationHeight = option.size.height
+					})
+
+					domModule.getComponentRect(this.$refs.todayOilPrice, option => {
+						this.todayOilPriceHeight = option.size.height
+
+						let showHeight = this.dragIconHeight + this.oilStationHeight + this.todayOilPriceHeight
+						// console.log(showHeight)
+						this.screenHeight = res.screenHeight
+						this.mapHeight = res.screenHeight * 2 - (showHeight * 2) + 64
+						this.topSize = res.screenHeight * 2 - (showHeight * 2)
+						/* this.mapHeight = res.screenHeight * 2
+						this.topSize = res.screenHeight * 2 - (showHeight * 2) */
+
+						// 底部未显示高度大于需要上滑的高度时，上滑高度为需要上滑的高度
+						// 底部未显示高度小于需要上滑的高度时，上滑高度为底部的高度
+						let normalHeight = res.screenHeight * 0.8 - showHeight
+						let bottomHeight = this.layerChildHeight - showHeight
+						this.topHeight = bottomHeight >= normalHeight ? normalHeight : bottomHeight
+					})
+				}
+			})
+			this.init();
+		},
+		onUnload() {},
+		onLoad() {},
+		mounted() {
+			// this.init();
+		},
+		watch: {
+			covers: function(){
+				this.markers = this.covers;
+			},
+			includes: function(){
+				this.includePoints = this.includes;
+			}
+		},
+		methods: {
+			init(){
+				let _self = this;
+				_self.map_nvue = uni.getCurrentSubNVue();
+				_self.map_nvue.onMessage(res => {
+					let data = res.data;
+					_self.setMapData(data);
+				});
+			},
+			setMapData(obj){
+				let _self = this;
+				_self.longitude = obj.longitude;
+				_self.latitude = obj.latitude;
+				obj.regeocodeData.pois.forEach((val, key) => {
+					val.longitude = Number(val.location.split(',')[0]);
+					val.latitude = Number(val.location.split(',')[1]);
+					val.locationIconPath = '/static/img/icons/location-u.png';
+					val.iconPath = '/static/img/icons/location-i.png';
+					if(key <= 5){
+						let o = {
+							id: key,
+							title: val.name,
+							longitude: val.longitude,
+							latitude: val.latitude,
+							width: 22,
+							height: 22
+						}
+						if(key == 0){
+							o.iconPath = val.locationIconPath;
+						}else{
+							o.iconPath = val.iconPath;
+						}
+						_self.covers.push(o);
+					}
+					let includes = {
+						longitude: val.longitude,
+						latitude: val.latitude,
+					}
+					_self.includes.push(includes);
+				})
+				console.log(JSON.stringify(_self.covers));
+			},
+			getEl: function(el) {
+				if (typeof el === 'string' || typeof el === 'number') return el;
+				if (WXEnvironment) {
+					return el.ref;
+				} else {
+					return el instanceof HTMLElement ? el : el.$el;
+				}
+			},
+
+			scrollHandler: function(e) {
+				this.contentOffsetY = e.contentOffset.y
+			},
+
+			onrefresh(event) {
+				if (this.isTop) {
+					this.goBottom();
+					this.isTop = false
+					this.scrollable = false
+					this.refreshing = true
+				}
+			},
+
+			onpullingdown(event) {},
+
+			// 获取角度
+			getAngle(angx, angy) {
+				return Math.atan2(angy, angx) * 180 / Math.PI;
+			},
+
+			// 根据起点终点返回方向 1向上 2向下 3向左 4向右 0未滑动
+			getDirection(startx, starty, endx, endy) {
+				var angx = endx - startx;
+				var angy = endy - starty;
+				var result = 0;
+				//如果滑动距离太短
+				if (Math.abs(angx) < 2 && Math.abs(angy) < 2) {
+					return result;
+				}
+				var angle = this.getAngle(angx, angy);
+				if (angle >= -135 && angle <= -45) {
+					result = 1;
+				} else if (angle > 45 && angle < 135) {
+					result = 2;
+				} else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
+					result = 3;
+				} else if (angle >= -45 && angle <= 45) {
+					result = 4;
+				}
+				return result;
+			},
+
+			// 手势滑动开始
+			handleTouchStart(e) {
+				this.startx = e.changedTouches[0].pageX;
+				this.starty = e.changedTouches[0].pageY;
+			},
+
+			// 手势滑动结束
+			handleTouchEnd(e) {
+				var endx, endy;
+				endx = e.changedTouches[0].pageX;
+				endy = e.changedTouches[0].pageY;
+				var direction = this.getDirection(this.startx, this.starty, endx, endy);
+				switch (direction) {
+					// 未滑动！
+					case 0:
+						break;
+						// 向上滑动	
+					case 1:
+						if (!this.isTop) {
+							this.goTop();
+							this.isTop = true
+							this.scrollable = true
+						}
+						break;
+						// 向下滑动	
+					case 2:
+						if (this.isTop && this.contentOffsetY == 0) {
+							this.goBottom();
+							this.isTop = false
+							this.scrollable = false
+						}
+						break;
+						// 向左
+					case 3:
+						break;
+
+						// 向右
+					case 4:
+						break;
+					default:
+				}
+
+			},
+
+			handleTouchMove(e) {},
+
+			// 上滑操作
+			goTop() {
+				let box = this.getEl(this.$refs.dragLayer);
+				let topHeight = this.topHeight;
+				console.log(topHeight);
+				Binding.bind({
+					eventType: 'timing',
+					exitExpression: {
+						origin: 't>800'
+					},
+					props: [{
+						element: box,
+						property: 'transform.translateY',
+						expression: {
+							origin: "easeOutQuint(t, 0, - " + topHeight + ", 800)"
+						}
+					}]
+				});
+			},
+
+			// 下滑操作
+			goBottom() {
+				let box = this.getEl(this.$refs.dragLayer);
+				let topHeight = this.topHeight;
+				console.log(topHeight);
+				Binding.bind({
+					eventType: 'timing',
+					exitExpression: {
+						origin: 't>800'
+					},
+					props: [{
+						element: box,
+						property: 'transform.translateY',
+						expression: {
+							origin: "easeOutQuint(t, - " + topHeight + ", " + topHeight + ", 800)"
+						}
+					}, ]
+				});
+				setTimeout(() => {
+					this.refreshing = false
+				}, 100)
+			},
+
+			showDrawer() {
+				uni.getSubNVueById('drawer').show('slide-in-left', 200);
+			},
+			onSearchInput(e){
+				console.log(e);
+				let keyword = e.detail.value;
+				this.onSearchEvent(keyword);
+			},
+			onSearchEvent(o){
+				
+			}
+		}
+	}
+</script>
+
+<style>
+	@import "map.css";
+	.dragLayer {
+		width: 750rpx;
+		height: 1600rpx;
+		position: fixed;
+		/* background-color: #007AFF; */
+	}
+</style>

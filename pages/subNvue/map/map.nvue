@@ -1,0 +1,30 @@
+<template>
+	<view class="map-container">
+		<!-- <map class="maps" :latitude="latitude" :longitude="longitude" :markers="covers"></map> -->
+		哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				latitude: 39.909,
+				longitude: 116.39742,
+				covers: [{
+					latitude: 39.909,
+					longitude: 116.39742,
+					iconPath: '../../../static/img/icons/location-i.png'
+				}, {
+					latitude: 39.90,
+					longitude: 116.39,
+					iconPath: '../../../static/img/icons/location-i.png'
+				}]
+			};
+		}
+	}
+</script>
+
+<style lang="scss">
+
+</style>
